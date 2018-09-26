@@ -1,0 +1,40 @@
+CPU SPECS
+
+16 bit words
+65536 words RAM (4k)
+PC - 16 bit
+SP
+
+o = opcode, a = addressing mode, s = source register, d = dest register
+v = value
+
+0000 1000 0100 0000
+0000 0000 0000 1111
+
+oooo oaas ssdd d000
+vvvvvvvvvvvvvvvv
+
+
+set x, 10
+add x, 20 //result stored in x
+
+this.registers[reg] = value;
+
+0x01
+
+OPCODES
+0x00 - HALT
+0x01 - SET R1, 10
+0x02 - ADD
+0x03 - SUB
+0x04
+0x05
+0x06
+
+8 bit test
+ooooxxrr
+
+0x00 = mov xx, rr
+0x01 = add
+
+
