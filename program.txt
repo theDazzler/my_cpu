@@ -1,0 +1,6 @@
+SET R4, 5
+ADD R4, 8
+SUB R4, 2
+SET R1, 7
+MUL R1, 8
+DIV R1, 2

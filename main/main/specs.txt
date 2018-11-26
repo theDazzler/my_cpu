@@ -5,22 +5,21 @@ CPU SPECS
 PC - 16 bit
 SP
 
+Stack starts at end of RAM and grows downwards
+
 o = opcode, a = addressing mode, s = source register, d = dest register
 v = value
 
 0000 1000 0100 0000
 0000 0000 0000 1111
 
-oooo oaas ssdd d000
-vvvvvvvvvvvvvvvv
-
+000a asss dddo oooo
+vvvv vvvv vvvv vvvv
 
 set x, 10
 add x, 20 //result stored in x
 
 this.registers[reg] = value;
-
-0x01
 
 OPCODES
 0x00 - HALT
@@ -31,10 +30,30 @@ OPCODES
 0x05
 0x06
 
-8 bit test
-ooooxxrr
+SET R4, 5
+ADD R4, 8
+SUB R4, 2
+SET R1, 7
+MUL R1, 8
+DIV R1, 2
 
-0x00 = mov xx, rr
-0x01 = add
+void NOP();  
+void HALT();
+void SET(u16 x, u16 v);
+void ADD(u16 x, u16 v);
+void SUB(u16 x, u16 v);
+void MUL(u16 x, u16 v);
+void DIV(u16 x, u16 v);
+void AND(u16 x, u16 v);
+void OR(u16 x, u16 v);
+void XOR(u16 x, u16 v);
+void SHL(u16 x, u16 v);
+void SHR(u16 x, u16 v);
+void MOD(u16 x, u16 v);
+void JMP(u16 address);
+void JE(u16 address);
+void JNE(u16 address);
+void JGEZ(u16 address, u16 x);
+void CMP(u16 x, u16 v);
 
 

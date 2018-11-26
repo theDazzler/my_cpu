@@ -1,4 +1,3 @@
-#include "stdafx.h""
 #include <stdint.h>
 #include <string>
 #include <iostream>
@@ -40,19 +39,22 @@ void Cpu::init()
     }
 }
 
-void Cpu::loadRAM()
+void Cpu::loadRAM(std::vector<int> instructions)
 {
+	cout << "Loading RAM..." << endl;
+	for(int i = 0; i < instructions.size(); i++)
+	{
+		cout << instructions.at(i) << endl;
+		ram[i].word = instructions.at(i);
+		dump();
+	}
+
     //ram[0].word = 0x1040;
     //ram[1].word = 0x000F;
 
-	
-	//HALT 0x0000 opcode = 0000 0000 0000 0000 = 0x0000
-	//SET 0x0001 opcode = 0000 1000 0000 0000 = 0x0800
-	//ADD 0x0002 opcode = 0001 0000 0000 0000 = 0x1000
-	//SUB 0x0003 opcode = 0001 1000 0000 0000 = 0x1800
-	//MUL 0x0004 opcode = 0010 0000 0000 0000 = 0x2000
-	//DIV 0x0005 opcode = 0010 1000 0000 0000 = 0x2800
 
+
+/*
 
 	//SET register 0 to 5
 	ram[0].word = 0x0001; //SET opcode
@@ -102,10 +104,12 @@ void Cpu::loadRAM()
 
 	ram[20].word = 0x000B;//MOD reg0 
 	ram[21].word = 0x0002;//with 2
+	*/
 	/*
 	ram[22].word = 0x000C;//JMP 
 	ram[23].word = 0x0080;//to address 128*/
 
+/*
 	ram[22].word = 0x0001;//SET reg0 
 	ram[23].word = 0x0007;//to 7
 	ram[24].word = 0x000F;//JGEZ 
@@ -113,6 +117,7 @@ void Cpu::loadRAM()
 
 
 	ram[26].word = 0x0000; //HALT
+	*/
 
 
 }
@@ -341,7 +346,6 @@ void Cpu::JMP(u16 address)
 	PC = address;
 }
 
-//TODO:: figure out how I want to handle this
 void Cpu::JE(u16 address)
 {
 	if (flags.Z)
